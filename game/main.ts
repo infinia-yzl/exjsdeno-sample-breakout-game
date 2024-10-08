@@ -9,8 +9,12 @@ const game = new Engine({
 
 // `game.add` is the same as calling
 // `game.currentScene.add`
-game.add(new Paddle(game));
-game.add(new Ball(game, vec(100, 100)));
+const playerPaddle = new Paddle(game)
+game.add(playerPaddle);
+game.add(new Ball(game, vec(200, 100)));
+game.input.pointers.primary.on("move", (evt) => {
+  playerPaddle.pos.x = evt.worldPos.x;
+});
 
 game.start().then(() => {
 });
