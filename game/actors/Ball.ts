@@ -4,11 +4,14 @@ import {
   Color,
   Vector,
   Engine,
+  CollisionStartEvent,
 } from "https://esm.sh/excalibur@0.29.3";
+import Brick from "./Brick.ts";
 
 export default class Ball extends Actor {
   private readonly ballSpeed: Vector;
   private game: Engine;
+  private colliding: boolean = false;
 
   constructor(game: Engine, ballSpeed: Vector) {
     super({
@@ -28,6 +31,9 @@ export default class Ball extends Actor {
 
   private attachEvents(): void {
     this.on('postupdate', this.handlePostUpdate.bind(this));
+    this.on('collisionstart', this.handleCollisionStart.bind(this));
+    this.on('collisionend', this.handleCollisionEnd.bind(this));
+    this.on('exitviewport', this.handleExitViewport.bind(this));
   }
 
   private startServe(): void {
@@ -56,5 +62,29 @@ export default class Ball extends Actor {
     if (this.pos.y < this.height / 2) {
       this.vel.y = this.ballSpeed.y;
     }
+  }
+  private handleCollisionStart(ev: CollisionStartEvent): void {
+    if (ev.other instanceof Brick) {
+      ev.other.kill();
+    }
+
+    const intersection = ev.contact.mtv.normalize();
+
+    if (!this.colliding) {
+      this.colliding = true;
+      if (Math.abs(intersection.x) > Math.abs(intersection.y)) {
+        this.vel.x *= -1;
+      } else {
+        this.vel.y *= -1;
+      }
+    }
+  }
+
+  private handleCollisionEnd(): void {
+    this.colliding = false;
+  }
+
+  private handleExitViewport(): void {
+    alert('You lose!');
   }
 }
