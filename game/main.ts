@@ -3,7 +3,6 @@ import Paddle from "./actors/Paddle.ts";
 import Ball from "./actors/Ball.ts";
 import Brick from "./actors/Brick.ts";
 
-
 const game = new Engine({
   width: 800,
   height: 600,
@@ -39,7 +38,7 @@ for (let j = 0; j < rows; j++) {
       yoffset + j * (brickHeight + padding) + padding,
       brickWidth,
       brickHeight,
-      brickColor[j % brickColor.length]
+      brickColor[j % brickColor.length],
     );
     game.add(brick);
   }
