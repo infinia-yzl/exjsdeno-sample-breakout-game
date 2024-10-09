@@ -1,4 +1,4 @@
-# Sample Breakout Game with Deno 2
+# Sample Breakout Game with Excalibur.js & Deno 2
 
 This project follows the [Excalibur.js Getting Started Guide](https://excaliburjs.com/docs/getting-started/) using Deno 2. It's an experimental implementation for learning purposes.
 
