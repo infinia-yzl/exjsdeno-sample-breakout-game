@@ -33,12 +33,16 @@ That's it! You should now see the Breakout game running in your browser.
 
 If you want to modify the game:
 
-1. Ensure you have Deno 2.0.0-rc.10 or later installed.
-
-2. Run the development server with watch mode:
+1. Run the development server with watch mode:
    ```bash
    deno task dev
    ```
    This will automatically rebuild when you make changes to the game files.
 
-Note: The project uses Luca's esbuild Deno loader for bundling.
+2. To test changes, open the game in your browser as usual:
+   - Double-click on `./game/index.html` in your file explorer
+   - Or use the command line:
+     ```bash
+     open ./game/index.html
+     ```
+Note: The project uses [Luca's esbuild Deno loader for bundling](https://jsr.io/@luca/esbuild-deno-loader).
