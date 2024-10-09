@@ -2,6 +2,13 @@
 
 This project follows the [Excalibur.js Getting Started Guide](https://excaliburjs.com/docs/getting-started/) using Deno 2. It's an experimental implementation for learning purposes.
 
+## Prerequisites - Install Deno
+`Deno: Version 2.0.0-rc.10 or later`
+
+Install Deno following [their official guide](https://docs.deno.com/runtime/getting_started/installation/).
+
+As of time of writing, Deno 2.0 is unreleased. To upgrade, follow: https://deno.com/blog/v2.0-release-candidate
+
 ## Running the Game
 
 1. Clone this repository.
@@ -19,6 +26,8 @@ This project follows the [Excalibur.js Getting Started Guide](https://excaliburj
       ```
 
 That's it! You should now see the Breakout game running in your browser.
+
+![breakout-deno.gif](breakout-deno.gif)
 
 ## Development
 
